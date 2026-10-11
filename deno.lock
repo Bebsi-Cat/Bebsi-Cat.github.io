@@ -1,7 +1,8 @@
 {
   "version": "5",
   "specifiers": {
-    "npm:astro@^7.3.8": "7.3.8"
+    "npm:astro@^7.3.8": "7.3.8",
+    "npm:sharp@~0.35.5": "0.35.5"
   },
   "npm": {
     "@astrojs/compiler-binding-android-arm64@0.5.1": {
@@ -419,8 +420,6 @@
     "@napi-rs/wasm-runtime@1.2.5_@emnapi+core@1.11.1_@emnapi+runtime@1.11.1": {
       "integrity": "sha512-HshSvXzmBxNzqejd3k/KemgQ3hdREUYFRRrgxOZ+gPljDIsO2SDZrVZMd4Z/HsxudQbE62OVyVFE8z9BCurfjA==",
       "dependencies": [
-        "@emnapi/core@1.11.1",
-        "@emnapi/runtime@1.11.1",
         "@tybys/wasm-util"
       ]
     },
@@ -1519,7 +1518,8 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
-        "npm:astro@^7.3.8"
+        "npm:astro@^7.3.8",
+        "npm:sharp@~0.35.5"
       ]
     }
   }
