@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import Sidebar from "../components/Sidebar.astro";
 import "../styles/global.css";
 interface Props {
     title: string;
@@ -17,9 +18,17 @@ const { title, description } = Astro.props;
     </head>
     <body>
         <Header />
-        <main>
-            <slot />
-        </main>
+        <div id="content">
+            <Sidebar>
+                <p>Meow</p>
+            </Sidebar>
+            <main>
+                <slot />
+            </main>
+            <Sidebar>
+                <p>Meow x2</p>
+            </Sidebar>
+        </div>
     </body>
 </html>
 
@@ -35,5 +44,21 @@ const { title, description } = Astro.props;
         display: flex;
         flex-direction: column;
         max-width: 1320px;
+        padding: 0 var(--section-gap);
+    }
+    #content {
+        display: flex;
+        flex-direction: row;
+        gap: var(--section-gap);
+        margin-bottom: var(--section-gap);
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+        gap: var(--section-gap);
+        flex-grow: 1;
+    }
+    main > :global(section:first-of-type) {
+        min-height: 800px;
     }
 </style>

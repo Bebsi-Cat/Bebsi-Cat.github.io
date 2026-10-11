@@ -6,4 +6,7 @@ export default defineConfig({
   output: "static",
   site: "https://bebsi-cat.github.io",
   base: "/",
+  image: {
+    responsiveStyles: true,
+  },
 });

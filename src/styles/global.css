@@ -2,6 +2,7 @@
     --section-background-colour: #101010;
     --section-border-colour: #343434;
     --section-padding: 16px;
+    --section-gap: 16px;
 }
 
 * {
