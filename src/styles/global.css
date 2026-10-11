@@ -1,8 +1,9 @@
 :root {
+    --accent-colour: #4c7936;
     --section-background-colour: #101010;
-    --section-border-colour: #4c7936;
     --section-padding: 16px;
     --section-gap: 16px;
+    --section-border: 2px solid var(--accent-colour);
 }
 
 * {
