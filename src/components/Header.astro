@@ -5,13 +5,16 @@ import Section from "./Section.astro";
 ---
 
 <header>
-    <Image
-        src={headerImage}
-        alt="Header image of russian (T-90) tanks in snowy field"
-        width={1320}
-        height={300}
-        layout="full-width"
-    />
+    <figure class="header-image">
+        <Image
+            src={headerImage}
+            alt="Header image of russian (T-90) tanks in snowy field"
+            width={1320}
+            height={300}
+            layout="full-width"
+        />
+        <figcaption class="credit">Dmitry Abukaev</figcaption>
+    </figure>
     <Section>
         <marquee>
             <span>Blah blah blah blah blah</span>
@@ -31,5 +34,16 @@ import Section from "./Section.astro";
         span {
             margin: 0 10px;
         }
+    }
+    .header-image {
+        position: relative;
+        margin: 0;
+        display: inline-block;
+    }
+    .credit {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        padding: 10px;
     }
 </style>
