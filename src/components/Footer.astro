@@ -1,0 +1,39 @@
+---
+const year = new Date().getFullYear().toString();
+---
+
+<footer>
+    <span>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
+        Source available{" "}
+        <a href="https://github.com/Bebsi-Cat/Bebsi-Cat.github.io">here</a>.
+    </span>
+    <span>
+        &copy <a href="https://bebsi-cat.github.io">Ashley</a> {year}.
+    </span>
+</footer>
+<style>
+    footer {
+        background-color: var(--section-background-colour);
+        padding: var(--section-padding);
+        border-top: var(--section-border);
+        border-bottom: var(--section-border);
+        display: flex;
+        flex-direction: row;
+
+        :last-child {
+            flex-grow: 1;
+            text-align: right;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin-top: 0;
+            text-align: center;
+        }
+    }
+</style>

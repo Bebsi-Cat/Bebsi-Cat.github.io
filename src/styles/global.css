@@ -8,5 +8,19 @@
 
 * {
     color: #c2c2c2;
-    font-family: "Comic Sans MS", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Sixtyfour Variable", monospace;
+}
+
+p,
+span,
+figcaption {
+    font-family: "Tomorrow", sans-serif;
 }
