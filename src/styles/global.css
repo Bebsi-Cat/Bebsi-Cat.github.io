@@ -1,3 +1,10 @@
+:root {
+    --section-background-colour: #101010;
+    --section-border-colour: #343434;
+    --section-padding: 16px;
+}
+
 * {
+    color: #c2c2c2;
     font-family: "Comic Sans MS", sans-serif;
 }

@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import headerImage from "../assets/headerimg.jpg";
+import Section from "./Section.astro";
 ---
 
 <header>
@@ -11,7 +12,19 @@ import headerImage from "../assets/headerimg.jpg";
         height={300}
         layout="full-width"
     />
-    <div>
+    <Section>
         <p>Blah blah blah blah blah</p>
-    </div>
+    </Section>
 </header>
+
+<style>
+    header {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 16px;
+        gap: 16px;
+    }
+    p {
+        margin: 0;
+    }
+</style>
