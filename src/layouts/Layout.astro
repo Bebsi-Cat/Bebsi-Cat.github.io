@@ -1,4 +1,6 @@
 ---
+import Header from "../components/Header.astro";
+import "../styles/global.css";
 interface Props {
     title: string;
     description: string;
@@ -14,8 +16,24 @@ const { title, description } = Astro.props;
         <meta name="description" content={description} />
     </head>
     <body>
+        <Header />
         <main>
             <slot />
         </main>
     </body>
 </html>
+
+<style>
+    html {
+        background-color: black;
+        background-image: url("/Hexagon_Tiling.svg");
+        background-repeat: repeat;
+        background-size: calc(100vw / 6) auto;
+    }
+    body {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        max-width: 1320px;
+    }
+</style>
