@@ -1,11 +1,34 @@
 <aside>
-    <slot />
+    <h2>SITEMAP</h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/blog">Blog</a>
+            </li>
+            <li>
+                <a href="/projects">Projects</a>
+            </li>
+            <li>
+                <a href="/gallery">Gallery</a>
+            </li>
+            <li>
+                <a href="/snep">Sneps...</a>
+            </li>
+        </ul>
+    </nav>
+    <h2>TO DO!</h2>
+    <p>- Changing header image and accents</p>
+    <p>- Add 88x31's</p>
+    <p>- Add content to pages</p>
 </aside>
 <style>
     aside {
         //        min-width: 210px;
         width: 210px;
-        height: 800px;
+        height: 100%;
         background-color: var(--section-background-colour);
         padding: var(--section-padding);
         border-top: var(--section-border);
@@ -17,7 +40,6 @@
         h4,
         h5,
         h6 {
-            margin-top: 0;
             text-align: center;
         }
         h2 {
@@ -48,5 +70,11 @@
                 }
             }
         }
+    }
+    aside > :first-child {
+        margin-top: 0;
+    }
+    aside > :last-child {
+        margin-bottom: 0;
     }
 </style>

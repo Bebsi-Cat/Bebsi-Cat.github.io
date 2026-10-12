@@ -23,37 +23,10 @@ const { title, description, showMarquee = false } = Astro.props;
     <body>
         <Header showMarquee={showMarquee} />
         <div id="content">
-            <Sidebar>
-                <h2>SITEMAP</h2>
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="/">Home</a>
-                        </li>
-                        <li>
-                            <a href="/blog">Blog</a>
-                        </li>
-                        <li>
-                            <a href="/projects">Projects</a>
-                        </li>
-                        <li>
-                            <a href="/gallery">Gallery</a>
-                        </li>
-                        <li>
-                            <a href="/snep">Sneps...</a>
-                        </li>
-                    </ul>
-                </nav>
-            </Sidebar>
+            <Sidebar />
             <main>
                 <slot />
             </main>
-            <Sidebar>
-                <h2>TO DO!</h2>
-                <p>- Changing header image and accents</p>
-                <p>- Add 88x31's</p>
-                <p>- Add content to pages</p>
-            </Sidebar>
         </div>
         <Footer />
     </body>
@@ -67,25 +40,25 @@ const { title, description, showMarquee = false } = Astro.props;
         background-size: calc(100vw / 6) auto;
     }
     body {
-        margin: 0 auto var(--section-gap) auto;
+        margin: 0 auto;
         display: flex;
+        gap: var(--section-gap);
         flex-direction: column;
         max-width: 1320px;
-        padding: 0 var(--section-gap);
+        padding: 0 var(--section-gap) var(--section-gap) var(--section-gap);
+        min-height: 100vh;
+        box-sizing: border-box;
     }
     #content {
         display: flex;
         flex-direction: row;
         gap: var(--section-gap);
-        margin-bottom: var(--section-gap);
+        margin-bottom: auto;
     }
     main {
+        flex-grow: 1;
         display: flex;
         flex-direction: column;
         gap: var(--section-gap);
-        flex-grow: 1;
-    }
-    main > :global(section:first-of-type) {
-        min-height: 800px;
     }
 </style>
