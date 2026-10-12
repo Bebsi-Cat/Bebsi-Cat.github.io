@@ -20,5 +20,33 @@
             margin-top: 0;
             text-align: center;
         }
+        h2 {
+            border: 2px solid var(--accent-colour);
+            border-style: inset;
+            padding: 10px;
+            background-color: #171717;
+        }
+        nav {
+            background-color: #171717;
+            padding: 15px 0;
+            border-top: var(--section-border);
+            border-bottom: var(--section-border);
+            ul {
+                list-style-type: "🢥";
+                margin: 0;
+                li {
+                    padding: 3px 3px 3px 7px;
+                    a {
+                        text-decoration: none;
+                        transition: transform 0.2s;
+                        display: inline-block;
+                        &:hover {
+                            text-decoration: underline;
+                            transform: scale(1.2);
+                        }
+                    }
+                }
+            }
+        }
     }
 </style>

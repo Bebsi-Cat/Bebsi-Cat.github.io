@@ -24,7 +24,25 @@ const { title, description } = Astro.props;
         <div id="content">
             <Sidebar>
                 <h2>SITEMAP</h2>
-                <p>Buttons here!</p>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="/blog">Blog</a>
+                        </li>
+                        <li>
+                            <a href="/projects">Projects</a>
+                        </li>
+                        <li>
+                            <a href="/gallery">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="/snep">Sneps...</a>
+                        </li>
+                    </ul>
+                </nav>
             </Sidebar>
             <main>
                 <slot />
