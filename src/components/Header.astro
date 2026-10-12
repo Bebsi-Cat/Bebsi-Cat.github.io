@@ -2,6 +2,12 @@
 import { Image } from "astro:assets";
 import headerImage from "../assets/headerimg.jpg";
 import Section from "./Section.astro";
+
+interface Props {
+    showMarquee: boolean;
+}
+
+const { showMarquee = false } = Astro.props;
 ---
 
 <header>
@@ -17,12 +23,14 @@ import Section from "./Section.astro";
             Dmitry Abukaev (Milsim visions x 02)
         </figcaption>
     </figure>
-    <div id="marquee-container">
-        <marquee>
-            <span>Blah blah blah blah blah</span>
-            <span>Blah blah blah blah blah</span>
-        </marquee>
-    </div>
+    {showMarquee && (
+        <div id="marquee-container">
+            <marquee>
+                <span>Blah blah blah blah blah</span>
+                <span>Blah blah blah blah blah</span>
+            </marquee>
+        </div>
+    )}
 </header>
 
 <style>

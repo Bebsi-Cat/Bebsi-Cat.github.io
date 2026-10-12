@@ -8,8 +8,9 @@ import "@fontsource/tomorrow";
 interface Props {
     title: string;
     description: string;
+    showMarquee?: boolean;
 }
-const { title, description } = Astro.props;
+const { title, description, showMarquee = false } = Astro.props;
 ---
 
 <html lang="en">
@@ -20,7 +21,7 @@ const { title, description } = Astro.props;
         <meta name="description" content={description} />
     </head>
     <body>
-        <Header />
+        <Header showMarquee={showMarquee} />
         <div id="content">
             <Sidebar>
                 <h2>SITEMAP</h2>
