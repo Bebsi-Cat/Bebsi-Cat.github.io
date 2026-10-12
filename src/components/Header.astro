@@ -17,12 +17,12 @@ import Section from "./Section.astro";
             Dmitry Abukaev (Milsim visions x 02)
         </figcaption>
     </figure>
-    <Section>
+    <div id="marquee-container">
         <marquee>
             <span>Blah blah blah blah blah</span>
             <span>Blah blah blah blah blah</span>
         </marquee>
-    </Section>
+    </div>
 </header>
 
 <style>
@@ -47,5 +47,11 @@ import Section from "./Section.astro";
         right: 10px;
         bottom: 10px;
         padding: 10px;
+    }
+    #marquee-container {
+        background-color: var(--section-background-colour);
+        padding: var(--section-padding);
+        border-top: var(--section-border);
+        border-bottom: var(--section-border);
     }
 </style>
