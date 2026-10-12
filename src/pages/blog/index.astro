@@ -34,9 +34,8 @@ const getMonthName = (monthNumber: number) =>
     new Date(2000, monthNumber, 1).toLocaleString("en-NZ", { month: "long" });
 ---
 
-<Layout title="Home" description="Home page">
-    <Section>
-        <h1>Blog</h1>
+<Layout title="Blog" description="Blog page">
+    <Section title="Blog">
         {[...postsByYear].map(([year, postsByMonth]) => (
             <div>
                 {" "}

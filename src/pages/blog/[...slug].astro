@@ -1,7 +1,12 @@
 ---
 import Section from "../../components/Section.astro";
 import Layout from "../../layouts/Layout.astro";
-import { render, getCollection, type CollectionEntry } from "astro:content";
+import {
+    render,
+    getCollection,
+    type CollectionEntry,
+    getEntry,
+} from "astro:content";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
@@ -11,12 +16,16 @@ export async function getStaticPaths() {
     }));
 }
 
+interface Props {
+    post: CollectionEntry<"blog">;
+}
+
 const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout title="Home" description="Home page">
-    <Section>
+<Layout title={post.data.title} description={post.data.description}>
+    <Section title={post.data.title}>
         <Content />
     </Section>
 </Layout>

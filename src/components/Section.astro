@@ -1,5 +1,16 @@
+---
+interface Props {
+    title?: string;
+}
+
+const { title = undefined } = Astro.props;
+---
+
 <section>
-    <slot />
+    {title && <h1>{title}</h1>}
+    <div class="section-content">
+        <slot />
+    </div>
 </section>
 <style>
     section {
@@ -22,6 +33,9 @@
             border-style: inset;
             padding: 10px;
             background-color: #171717;
+        }
+        .section-content {
+            padding: 0 10px;
         }
     }
 </style>
