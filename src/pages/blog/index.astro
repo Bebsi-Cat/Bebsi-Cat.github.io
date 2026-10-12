@@ -1,11 +1,66 @@
 ---
 import Section from "../../components/Section.astro";
 import Layout from "../../layouts/Layout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+type Post = CollectionEntry<"blog">;
+
+const posts = (await getCollection("blog")).sort(
+    (a: Post, b: Post) =>
+        b.data.published_date.valueOf() - a.data.published_date.valueOf(),
+);
+
+const postsByYear = new Map<number, Map<number, typeof posts>>();
+
+for (const post of posts) {
+    const year = post.data.published_date.getFullYear();
+    const month = post.data.published_date.getMonth();
+
+    if (!postsByYear.has(year)) {
+        postsByYear.set(year, new Map());
+    }
+    const postsByMonth = postsByYear.get(year)!;
+    if (!postsByMonth.has(month)) {
+        postsByMonth.set(month, []);
+    }
+    postsByMonth.get(month)!.push(post);
+}
+
+const postUrl = (post: Post) => {
+    return `/blog/${post.id}`;
+};
+
+const getMonthName = (monthNumber: number) =>
+    new Date(2000, monthNumber, 1).toLocaleString("en-NZ", { month: "long" });
 ---
 
 <Layout title="Home" description="Home page">
     <Section>
-        <h2>Mreow Mreow Mrrrp</h2>
-        <p>Meow meow Mrrrp x2 :3</p>
+        <h1>Blog</h1>
+        {[...postsByYear].map(([year, postsByMonth]) => (
+            <div>
+                {" "}
+                <h2>{year}</h2>
+                {[...postsByMonth].map(([month, monthPosts]) => (
+                    <div>
+                        <h3>{getMonthName(month)}</h3>
+                        <ul>
+                            {monthPosts.map((post: Post) => (
+                                <li>
+                                    <a href={postUrl(post)}>
+                                        {post.data.published_date.getDate()} -{" "}
+                                        {post.data.title}
+                                    </a>
+                                    <span>
+                                        {" - "}
+                                        {post.data.description}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </div>
+        ))}
     </Section>
 </Layout>
