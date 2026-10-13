@@ -1,4 +1,5 @@
 ---
+import Badge from "../components/Badge.astro";
 import Section from "../components/Section.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -7,4 +8,52 @@ import Layout from "../layouts/Layout.astro";
     <Section title="Mreow Mreow Mrrp">
         <p>Meow meow Mrrrp x2 :3</p>
     </Section>
+    <Section slot="before-footer">
+        <div id="badge-box">
+            <Badge
+                src="/88x31/bebsi.png"
+                label="Me :3c"
+                href="https://bebsi-cat.github.io"
+            />
+            <Badge
+                src="/88x31/blahaj_certified.png"
+                label="equinoxx.dev"
+                href="https://equinoxx.dev"
+            />
+            <Badge
+                src="/88x31/kiiatto.png"
+                label="kiiatto.net"
+                href="https://kiiatto.net"
+            />
+            <Badge src="/88x31/a97.png" label="" />
+            <Badge
+                src="/88x31/e-scp.gif"
+                label="Secure Contain Protect"
+                href="https://scp-wiki.wikidot.com"
+            />
+            <Badge src="/88x31/g22.gif" label="Mlp :3" />
+            <Badge src="/88x31/lapfoxgrad.gif" label="Lapfox my goat" />
+            <Badge src="/88x31/nowar.png" label="Slava ukraine" />
+            <Badge src="/88x31/flag-pan.png" label="" />
+            <Badge src="/88x31/queerbtn.png" label="" />
+            <Badge src="/88x31/therian.png" label="Fuck humanity!" />
+            <Badge
+                src="/88x31/hrt-e2.gif"
+                label="Certified by a trans girl btw"
+            />
+            <Badge
+                src="/88x31/lastfm-01.png"
+                label="Check out my music taste"
+                href="https://www.last.fm/user/Mochathefloof"
+            />
+        </div>
+    </Section>
 </Layout>
+<style>
+    #badge-box {
+        display: flex;
+        gap: var(--section-gap);
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+</style>

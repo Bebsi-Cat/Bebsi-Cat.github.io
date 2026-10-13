@@ -28,6 +28,7 @@ const { title, description, showMarquee = false } = Astro.props;
                 <slot />
             </main>
         </div>
+        <slot name="before-footer" />
         <Footer />
     </body>
 </html>

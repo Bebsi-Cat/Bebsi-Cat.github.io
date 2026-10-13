@@ -1,0 +1,51 @@
+---
+interface Props {
+    src: string;
+    label: string;
+    href?: string;
+}
+const { src, label, href } = Astro.props;
+---
+
+<a href={href || null} target="_blank" title={label}>
+    <img
+        src=`${src}`
+        class="badge"
+        width={88}
+        height={31}
+        alt=`${label || ""} badge`
+    />
+</a>
+
+<style>
+    a {
+        text-decoration: none;
+        width: 88px;
+        height: 31px;
+    }
+
+    img {
+        position: relative;
+        display: block;
+        width: 88px;
+        height: 31px;
+        transition:
+            all var(--transition-time),
+            transform var(--button-hover-effect);
+        margin: 0;
+        image-rendering: pixelated;
+        background-color: gray;
+        overflow: hidden;
+    }
+    img::before {
+        padding: 2px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        font-size: x-small;
+    }
+    img:hover {
+        transform: scale(2);
+        z-index: 1;
+    }
+</style>

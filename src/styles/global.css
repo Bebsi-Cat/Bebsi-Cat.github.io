@@ -4,6 +4,8 @@
     --section-padding: 16px;
     --section-gap: 16px;
     --section-border: 2px solid var(--accent-colour);
+    --transition-time: 0.2s;
+    --button-hover-effect: 0.35s cubic-bezier(0.17, 0.89, 0.32, 1.28);
 }
 
 *, *::before, *::after {
