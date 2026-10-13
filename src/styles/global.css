@@ -1,5 +1,5 @@
 :root {
-    --accent-colour: #4c7936;
+    --accent-colour: rgba(0,0,0,0);
     --section-background-colour: #101010;
     --section-padding: 16px;
     --section-gap: 16px;

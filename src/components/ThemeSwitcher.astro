@@ -1,0 +1,63 @@
+---
+import themes from "../assets/themes.json" with { type: "json" };
+---
+
+<div class="theme-switcher-container">
+    <select name="theme" id="theme-switcher">
+        {themes.map((theme) => (
+            <option
+                value={theme.id}
+                data-id={theme.id}
+                data-name={theme.name}
+                data-header-image={theme.headerImage}
+                data-alt-text={theme.altText}
+                data-credit={theme.credit}
+                data-accent-colour={theme.accentColour}
+            >
+                {theme.name}
+            </option>
+        ))}
+    </select>
+</div>
+
+<script>
+    const themeSwitcher = document.getElementById(
+        "theme-switcher",
+    ) as HTMLSelectElement;
+    const savedThemeRaw = localStorage.getItem("selectedTheme");
+    if (savedThemeRaw !== null && themeSwitcher) {
+        const savedTheme = JSON.parse(savedThemeRaw);
+        themeSwitcher.value = savedTheme.id;
+        themeSwitcher.dispatchEvent(new Event("change"));
+    }
+    themeSwitcher?.addEventListener("change", (event) => {
+        const target = event.target as HTMLSelectElement;
+        const selectedTheme = target.options[target.selectedIndex];
+        const id = selectedTheme.dataset.id;
+        const name = selectedTheme.dataset.name;
+        const headerImage = selectedTheme.dataset.headerImage;
+        const altText = selectedTheme.dataset.altText;
+        const credit = selectedTheme.dataset.credit;
+        const accentColour = selectedTheme.dataset.accentColour;
+        const theme = {
+            id,
+            name,
+            headerImage,
+            altText,
+            credit,
+            accentColour,
+        };
+        localStorage.setItem("selectedTheme", JSON.stringify(theme));
+        window.dispatchEvent(
+            new CustomEvent("theme-updated", {
+                detail: theme,
+            }),
+        );
+        if (accentColour) {
+            document.documentElement.style.setProperty(
+                "--accent-colour",
+                accentColour,
+            );
+        }
+    });
+</script>

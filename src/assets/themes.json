@@ -1,0 +1,18 @@
+[
+  {
+    "id": "swamp",
+    "name": "Swamp",
+    "headerImage": "swamp.jpg",
+    "altText": "Place Holder",
+    "credit": "Dmitry Abukaev (Milsim visions x 02)",
+    "accentColour": "#4c7936"
+  },
+  {
+    "id": "snowyroad",
+    "name": "Snowy Road",
+    "headerImage": "snowyroad.jpg",
+    "altText": "Place Holder",
+    "credit": "Dmitry Abukaev (Milsim visions x 01)",
+    "accentColour": "#4466a1"
+  }
+]

@@ -33,6 +33,37 @@ const { title, description, showMarquee = false } = Astro.props;
     </body>
 </html>
 
+<script>
+    const savedThemeRaw = localStorage.getItem("selectedTheme");
+    if (savedThemeRaw !== null) {
+        const savedTheme = JSON.parse(savedThemeRaw);
+        if (savedTheme !== null) {
+            window.dispatchEvent(
+                new CustomEvent("theme-updated", {
+                    detail: savedTheme,
+                }),
+            );
+            document.documentElement.style.setProperty(
+                "--accent-colour",
+                savedTheme.accentColour,
+            );
+        }
+    } else {
+        window.dispatchEvent(
+            new CustomEvent("theme-updated", {
+                detail: {
+                    id: "swamp",
+                    name: "Swamp",
+                    headerImage: "swamp.jpg",
+                    altText: "Place Holder",
+                    credit: "Dmitry Abukaev (Milsim visions x 02)",
+                    accentColour: "#4c7936",
+                },
+            }),
+        );
+    }
+</script>
+
 <style>
     html {
         background-color: black;
