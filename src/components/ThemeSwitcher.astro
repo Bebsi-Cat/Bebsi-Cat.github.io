@@ -1,0 +1,64 @@
+---
+import themes from "../assets/themes.json" with { type: "json" };
+---
+
+<div class="theme-switcher-container">
+    <select name="theme" id="theme-switcher">
+        {themes.map((theme) => (
+            <option
+                value={theme.id}
+                data-id={theme.id}
+                data-name={theme.name}
+                data-header-image={theme.headerImage}
+                data-alt-text={theme.altText}
+                data-credit={theme.credit}
+                data-accent-colour={theme.accentColour}
+            >
+                {theme.name}
+            </option>
+        ))}
+    </select>
+</div>
+
+<script>
+    import themes from "../assets/themes.json" with { type: "json" };
+    function applyTheme(id: string) {
+        const theme = themes.find((t) => t.id === id) ?? themes[0];
+        const root = document.documentElement;
+        root.dataset.theme = theme.id;
+        root.style.setProperty("--accent-colour", theme.accentColour);
+        (document.getElementById("header-image") as HTMLImageElement).src =
+            `/header-images/${theme.headerImage}`;
+        document.getElementById("credit")!.textContent = theme.credit;
+        (window as any).__theme = theme;
+    }
+
+    function init() {
+        const themeSwitcher = document.getElementById(
+            "theme-switcher",
+        ) as HTMLSelectElement;
+        themeSwitcher.value = document.documentElement.dataset.theme!;
+        themeSwitcher.addEventListener("change", () => {
+            try {
+                localStorage.setItem("theme", themeSwitcher.value);
+            } catch (error) {
+                console.error(error);
+            }
+            applyTheme(themeSwitcher.value);
+        });
+    }
+    init();
+    document.addEventListener("astro:page-load", init);
+</script>
+
+<style>
+    #theme-switcher {
+        width: 100%;
+        font-size: 16px;
+        background-color: var(--heading-background);
+        border: 0;
+        border-top: var(--section-border);
+        border-bottom: var(--section-border);
+        padding: 8px;
+    }
+</style>

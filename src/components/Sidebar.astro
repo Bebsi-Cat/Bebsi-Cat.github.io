@@ -1,3 +1,7 @@
+---
+import ThemeSwitcher from "./ThemeSwitcher.astro";
+---
+
 <aside>
     <h2>SITEMAP</h2>
     <nav>
@@ -22,10 +26,11 @@
     <h2>TO DO!</h2>
     <p>- Changing header image and accents</p>
     <p>- Add content to pages</p>
+    <h2>Theme</h2>
+    <ThemeSwitcher />
 </aside>
 <style>
     aside {
-        //        min-width: 210px;
         width: 210px;
         height: 100%;
         background-color: var(--section-background-colour);
@@ -45,10 +50,10 @@
             border: 2px solid var(--accent-colour);
             border-style: inset;
             padding: 10px;
-            background-color: #171717;
+            background-color: var(--heading-background);
         }
         nav {
-            background-color: #171717;
+            background-color: var(--heading-background);
             padding: 15px 0;
             border-top: var(--section-border);
             border-bottom: var(--section-border);

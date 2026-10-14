@@ -1,15 +1,17 @@
 :root {
-    --accent-colour: #4c7936;
+    /*--accent-colour: rgba(0,0,0,0); Set by theme */
     --section-background-colour: #101010;
     --section-padding: 16px;
     --section-gap: 16px;
     --section-border: 2px solid var(--accent-colour);
     --transition-time: 0.2s;
     --button-hover-effect: 0.35s cubic-bezier(0.17, 0.89, 0.32, 1.28);
+    --text-colour: #c2c2c2;
+    --heading-background: #171717;
 }
 
 *, *::before, *::after {
-    color: #c2c2c2;
+    color: var(--text-colour);
 }
 
 h1,
@@ -24,6 +26,7 @@ h6 {
 p,
 span,
 li,
+select,
 figcaption {
     font-family: "Tomorrow", sans-serif;
 }

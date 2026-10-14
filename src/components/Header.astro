@@ -1,8 +1,4 @@
 ---
-import { Image } from "astro:assets";
-import headerImage from "../assets/headerimg.jpg";
-import Section from "./Section.astro";
-
 interface Props {
     showMarquee: boolean;
 }
@@ -12,17 +8,18 @@ const { showMarquee = false } = Astro.props;
 
 <header>
     <figure class="header-image">
-        <Image
-            src={headerImage}
-            alt="Header image of russian (T-90) tanks in snowy field"
-            width={1320}
-            height={300}
-            layout="full-width"
-        />
-        <figcaption class="credit">
+        <img id="header-image" alt="Header image not loaded" />
+        <figcaption id="credit">
             Dmitry Abukaev (Milsim visions x 02)
         </figcaption>
     </figure>
+    <script is:inline>
+        var theme = window.__theme;
+        const creditText = document.getElementById("credit");
+        const headerImg = document.getElementById("header-image");
+        headerImg.src = `/header-images/${theme.headerImage}`;
+        creditText.textContent = theme.credit;
+    </script>
     {showMarquee && (
         <div id="marquee-container">
             <marquee>
@@ -35,9 +32,10 @@ const { showMarquee = false } = Astro.props;
 
 <style>
     header {
+        max-width: calc(1320px - var(--section-gap) * 2);
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: var(--section-gap);
     }
     marquee {
         span {
@@ -48,8 +46,15 @@ const { showMarquee = false } = Astro.props;
         position: relative;
         margin: 0;
         display: inline-block;
+        #header-image {
+            display: inline-block;
+            width: calc(1320px - var(--section-gap) * 2);
+            height: 300px;
+            object-fit: cover;
+            object-position: 50% 50%;
+        }
     }
-    .credit {
+    #credit {
         position: absolute;
         right: 10px;
         bottom: 10px;
@@ -58,6 +63,7 @@ const { showMarquee = false } = Astro.props;
     #marquee-container {
         background-color: var(--section-background-colour);
         padding: var(--section-padding);
+        box-sizing: border-box;
         border-top: var(--section-border);
         border-bottom: var(--section-border);
     }
