@@ -34,7 +34,7 @@ const { title, description, showMarquee = false } = Astro.props;
                         return t.id === id;
                     }) ||
                     themes.find(function (t) {
-                        return t.id === defaultId;
+                        return t.id === defaultThemeId;
                     });
                 var root = document.documentElement;
                 root.dataset.theme = theme.id;
