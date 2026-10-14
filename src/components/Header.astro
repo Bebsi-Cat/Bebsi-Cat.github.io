@@ -13,6 +13,13 @@ const { showMarquee = false } = Astro.props;
             Dmitry Abukaev (Milsim visions x 02)
         </figcaption>
     </figure>
+    <script is:inline>
+        var theme = window.__theme;
+        const creditText = document.getElementById("credit");
+        const headerImg = document.getElementById("header-image");
+        headerImg.src = `/header-images/${theme.headerImage}`;
+        creditText.textContent = theme.credit;
+    </script>
     {showMarquee && (
         <div id="marquee-container">
             <marquee>
@@ -22,26 +29,6 @@ const { showMarquee = false } = Astro.props;
         </div>
     )}
 </header>
-
-<script>
-    const creditText = document.getElementById("credit");
-    const headerImg = document.getElementById(
-        "header-image",
-    ) as HTMLImageElement;
-    window.addEventListener("theme-updated", (event) => {
-        const customEvent = event as CustomEvent;
-        const { id, name, headerImage, altText, credit, accentColour } =
-            customEvent.detail;
-        if (creditText && credit) {
-            creditText.textContent = credit;
-        }
-        console.log(headerImage);
-        if (headerImg && headerImage) {
-            headerImg.src = `/header-images/${headerImage}`;
-            headerImg.alt = altText;
-        }
-    });
-</script>
 
 <style>
     header {
