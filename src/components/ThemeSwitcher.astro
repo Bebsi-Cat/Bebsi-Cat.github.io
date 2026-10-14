@@ -50,3 +50,15 @@ import themes from "../assets/themes.json" with { type: "json" };
     init();
     document.addEventListener("astro:page-load", init);
 </script>
+
+<style>
+    #theme-switcher {
+        width: 100%;
+        font-size: 16px;
+        background-color: var(--heading-background);
+        border: 0;
+        border-top: var(--section-border);
+        border-bottom: var(--section-border);
+        padding: 8px;
+    }
+</style>
